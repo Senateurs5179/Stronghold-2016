@@ -90,7 +90,7 @@ public class BallControl {
     			state = 0;
     		}else if(grabButton == true){
     			state = 1;
-    		}else if(System.currentTimeMillis() - startTime > 4000){ 
+    		}else if(System.currentTimeMillis() - startTime > 10000){ 
     			state = 0;
     		}
     		break;

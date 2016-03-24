@@ -44,7 +44,7 @@ public class Arm {
 			armThirdSolenoidValue = DoubleSolenoid.Value.kOff;
 			if (closeSolenoidButton){
 				manualState = 0;
-			}else if (secondSolenoidUpButton){
+			}else if (secondSolenoidUpButton){	
 				manualState = 1;
 			}else{
 				manualState = 0;

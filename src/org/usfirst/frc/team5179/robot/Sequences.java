@@ -215,7 +215,7 @@ public class Sequences {
 			RobotMap.armFirstSolenoid.set(DoubleSolenoid.Value.kOff);
 			RobotMap.armSecondSolenoid.set(DoubleSolenoid.Value.kOff);
 			RobotMap.armThirdSolenoid.set(DoubleSolenoid.Value.kOff);
-			DriveTrain.driveDuringDistance(0, 0);
+//			DriveTrain.driveDuringDistance(0, 0);
 			break;
 		case 1: // lowBar
 			if (lowBarButton){
@@ -240,7 +240,7 @@ public class Sequences {
 			RobotMap.armFirstSolenoid.set(lowBarFirstSolenoid);
 			RobotMap.armSecondSolenoid.set(lowBarSecondSolenoid);
 			RobotMap.armThirdSolenoid.set(lowBarThirdSolenoid);
-			DriveTrain.driveDuringDistance(lowBarLeftDistance, lowBarRightDistance);
+//			DriveTrain.driveDuringDistance(lowBarLeftDistance, lowBarRightDistance);
 			break;
 		case 2:// Moat
 			if (lowBarButton){
@@ -265,7 +265,7 @@ public class Sequences {
 			RobotMap.armFirstSolenoid.set(moatFirstSolenoid);
 			RobotMap.armSecondSolenoid.set(moatSecondSolenoid);
 			RobotMap.armThirdSolenoid.set(moatThirdSolenoid);
-			DriveTrain.driveDuringDistance(0, 0);
+//			DriveTrain.driveDuringDistance(0, 0);
 			break;
 		case 3:// Rampart
 			if (lowBarButton){
@@ -290,7 +290,7 @@ public class Sequences {
 			RobotMap.armFirstSolenoid.set(rampartFirstSolenoid);
 			RobotMap.armSecondSolenoid.set(rampartSecondSolenoid);
 			RobotMap.armThirdSolenoid.set(rampartThirdSolenoid);
-			DriveTrain.driveDuringDistance(0, 0);
+//			DriveTrain.driveDuringDistance(0, 0);
 			break;
 		case 4:// Rock wall
 			if (lowBarButton){
@@ -315,7 +315,7 @@ public class Sequences {
 			RobotMap.armFirstSolenoid.set(rockWallFirstSolenoid);
 			RobotMap.armSecondSolenoid.set(rockWallSecondSolenoid);
 			RobotMap.armThirdSolenoid.set(rockWallThirdSolenoid);
-			DriveTrain.driveDuringDistance(rockWallLeftDistance, rockWallRightDistance);
+//			DriveTrain.driveDuringDistance(rockWallLeftDistance, rockWallRightDistance);
 			break;
 		case 5:// Rough terrain
 			if (lowBarButton){
@@ -340,7 +340,7 @@ public class Sequences {
 			RobotMap.armFirstSolenoid.set(roughTerrainFirstSolenoid);
 			RobotMap.armSecondSolenoid.set(roughTerrainSecondSolenoid);
 			RobotMap.armThirdSolenoid.set(roughTerrainThirdSolenoid);
-			DriveTrain.driveDuringDistance(0, 0);
+//			DriveTrain.driveDuringDistance(0, 0);
 			break;
 		case 6:// Cheval de frise
 			if (lowBarButton){
@@ -365,7 +365,7 @@ public class Sequences {
 			RobotMap.armFirstSolenoid.set(chevalFirstSolenoid);
 			RobotMap.armSecondSolenoid.set(chevalSecondSolenoid);
 			RobotMap.armThirdSolenoid.set(chevalThirdSolenoid);
-			DriveTrain.driveDuringDistance(chevalLeftDistance, chevalRightDistance);
+//			DriveTrain.driveDuringDistance(chevalLeftDistance, chevalRightDistance);
 			break;
 		case 7:// DrawBridge
 			if (lowBarButton){
@@ -390,7 +390,7 @@ public class Sequences {
 			RobotMap.armFirstSolenoid.set(drawbridgeFirstSolenoid);
 			RobotMap.armSecondSolenoid.set(drawbridgeSecondSolenoid);
 			RobotMap.armThirdSolenoid.set(drawbridgeThirdSolenoid);
-			DriveTrain.driveDuringDistance(0, 0);
+//			DriveTrain.driveDuringDistance(0, 0);
 			break;
 		case 8:// Portcullis
 			if (lowBarButton){
@@ -415,7 +415,7 @@ public class Sequences {
 			RobotMap.armFirstSolenoid.set(portcullisFirstSolenoid);
 			RobotMap.armSecondSolenoid.set(portcullisSecondSolenoid);
 			RobotMap.armThirdSolenoid.set(portcullisThirdSolenoid);
-			DriveTrain.driveDuringDistance(0, 0);
+//			DriveTrain.driveDuringDistance(0, 0);
 			break;
 		}
 	}
@@ -716,12 +716,12 @@ public class Sequences {
 		Timer.delay(1);
 		RobotMap.armFirstSolenoid.set(DoubleSolenoid.Value.kForward);
 		Timer.delay(1);
-		DriveTrain.driveDuringDistance(18,18);
+//		DriveTrain.driveDuringDistance(18,18);
 		RobotMap.armThirdSolenoid.set(DoubleSolenoid.Value.kReverse);
-		DriveTrain.driveDuringDistance(7,7);
+//		DriveTrain.driveDuringDistance(7,7);
 		RobotMap.armFirstSolenoid.set(DoubleSolenoid.Value.kReverse);
 		RobotMap.armSecondSolenoid.set(DoubleSolenoid.Value.kReverse);
-		DriveTrain.driveDuringDistance(74, 74);
+//		DriveTrain.driveDuringDistance(74, 74);
 	}
 
 	public static void moatSequence(){
@@ -738,13 +738,13 @@ public class Sequences {
 		Timer.delay(1);
 		RobotMap.armFirstSolenoid.set(DoubleSolenoid.Value.kForward);
 		Timer.delay(1);
-		DriveTrain.driveDuringDistance(13.5, 13.5);
+//		DriveTrain.driveDuringDistance(13.5, 13.5);
 		RobotMap.armThirdSolenoid.set(DoubleSolenoid.Value.kReverse);
-		DriveTrain.driveDuringDistance(-38, -38);
-		DriveTrain.driveDuringDistance(36, 36);
+//		DriveTrain.driveDuringDistance(-38, -38);
+//		DriveTrain.driveDuringDistance(36, 36);
 		RobotMap.armFirstSolenoid.set(DoubleSolenoid.Value.kReverse);
 		RobotMap.armSecondSolenoid.set(DoubleSolenoid.Value.kReverse);
-		DriveTrain.driveDuringDistance(104, 104);
+//		DriveTrain.driveDuringDistance(104, 104);
 	}
 	public static void rockWallSequence(){
 		

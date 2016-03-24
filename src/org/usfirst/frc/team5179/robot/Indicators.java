@@ -186,24 +186,25 @@ public class Indicators extends Thread {
 			SmartDashboard.putNumber("Left encoder count", RobotMap.driveTrainEncoderLeft.get());
 			SmartDashboard.putNumber("Right encoder count", RobotMap.driveTrainEncoderRight.get());
 			
-			SmartDashboard.putNumber("Left encoder distance", RobotMap.driveTrainEncoderLeft.getDistance());
-			SmartDashboard.putNumber("Right encoder distance", RobotMap.driveTrainEncoderRight.getDistance());
+			SmartDashboard.putNumber("Left encoder distance", DriveTrain.LE);
+			SmartDashboard.putNumber("Right encoder distance", DriveTrain.RE);
 			
 			
 			/*
 			 * DriveTrain.driveDuringDistance
 			 */
-			SmartDashboard.putNumber("Distance left state", DriveTrain.leftState);
-			SmartDashboard.putNumber("Distance right state", DriveTrain.rightState);
+			
+			SmartDashboard.putNumber("Left motor state", DriveTrain.leftState);
+			SmartDashboard.putNumber("Right motor state", DriveTrain.rightState);
 			
 			SmartDashboard.putNumber("Current left distance", DriveTrain.currentLeftDistance);
 			SmartDashboard.putNumber("Current right distance", DriveTrain.currentRightDistance);
 			
-			SmartDashboard.putNumber("Target left distance", (DriveTrain.deltaLeft+DriveTrain.currentLeftDistance));
-			SmartDashboard.putNumber("Target right distance", (DriveTrain.deltaRight+DriveTrain.currentRightDistance));
+			SmartDashboard.putNumber("Target left distance", DriveTrain.desiredLeftDistance);
+			SmartDashboard.putNumber("Target right distance", DriveTrain.desiredRightDistance);
 
-			SmartDashboard.putNumber("Delta left distance", DriveTrain.deltaLeft);
-			SmartDashboard.putNumber("Delta right distance", DriveTrain.deltaRight);
+			SmartDashboard.putNumber("Delta left distance", DriveTrain.missingLeftDistance);
+			SmartDashboard.putNumber("Delta right distance", DriveTrain.missingRightDistance);
 			
 			SmartDashboard.putBoolean("Left at target", DriveTrain.LEAtDistance);
 			SmartDashboard.putBoolean("Right at target", DriveTrain.REAtDistance);

@@ -5,6 +5,7 @@ package org.usfirst.frc.team5179.robot;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.SampleRobot;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This is a demo program showing the use of the RobotDrive class.
@@ -37,13 +38,16 @@ public class Robot extends SampleRobot {
     }
     
     public void robotInit() {
-        		
+        
+    	RobotMap.driveTrainEncoderLeft.reset();
+    	RobotMap.driveTrainEncoderRight.reset();
         CameraServer server;
         server = CameraServer.getInstance();
         server.setQuality(50);
         server.startAutomaticCapture("cam0");
 
 //        DriveTrain.driveDuringDistance((10*12), (10*12));
+        
         
     }
 
@@ -61,16 +65,18 @@ public class Robot extends SampleRobot {
     	lastIterationTime = System.currentTimeMillis();
         
     	if (i < 2){
+        	RobotMap.driveTrainEncoderLeft.reset();
+        	RobotMap.driveTrainEncoderRight.reset();
         	startTime  = System.currentTimeMillis();
         	i++;
     	}
     	
     	
-/*     	
-		while (System.currentTimeMillis() - startTime < 10000){
+     	
+		while (System.currentTimeMillis() - startTime < 3000){
 			DriveTrain.tankDrive(0.75, 0.75);
 		}
-*/		
+		
     }
 
     /**
@@ -85,15 +91,15 @@ public class Robot extends SampleRobot {
         	lastIterationTime = System.currentTimeMillis();
         	
             Timer.delay(0.005);		// wait for a motor update interval
-            
-        	DriveTrain.isRightControlled = true;
-        	
-        	if (i > 2){
-            	DriveTrain.driveDuringDistance(4, 4);
+ 
+            if (i < 2){
+            	DriveTrain.driveDuringDistance(10, 10);
+            	SmartDashboard.putBoolean("DistanceSet", true);
             	i++;
-        	}
-        	DriveTrain.updateDistance();
-
+            }
+                        
+           	DriveTrain.distanceCalculateSpeed();
+           	DriveTrain.distanceDrive();
         	
         	DriveTrain.updateEncoders();
         	DriveTrain.arcadeDrive(OI.joystick);

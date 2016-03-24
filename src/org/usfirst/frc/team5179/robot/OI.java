@@ -72,7 +72,7 @@ public class OI {
         secondSolenoidUpButton = new JoystickButton(codriver, 3);
         firstSolenoidDownButton = new JoystickButton(codriver, 2);
         firstSolenoidUpButton = new JoystickButton(codriver, 1);
-        closeSolenoidButton = new JoystickButton (codriver, 12);
+        closeSolenoidButton = new JoystickButton (codriver, 11);
 	}
 	
     public Joystick getJoystick() {
