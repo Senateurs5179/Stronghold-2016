@@ -172,6 +172,12 @@ public class Indicators extends Thread {
     		flash = true;
     	}
     	
+    	SmartDashboard.putBoolean("lowBarSwitch", RobotMap.lowBarSwitch.get());
+    	SmartDashboard.putBoolean("moatSwitch", RobotMap.moatSwitch.get());
+    	SmartDashboard.putBoolean("rampartsSwitch", RobotMap.rampartsSwitch.get());
+    	SmartDashboard.putBoolean("rockWallSwitch", RobotMap.rockWallSwitch.get());
+    	SmartDashboard.putBoolean("roughTerrainSwitch", RobotMap.roughTerrainSwitch.get());
+    	 	
 		
 		if (Robot.isTestMode){ // If we are debugging states
 			

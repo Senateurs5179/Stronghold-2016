@@ -64,6 +64,9 @@ public class DriveTrain {
     	initialRightDistance = RobotMap.driveTrainEncoderRight.getDistance();
     	SmartDashboard.putNumber("Initial right distance", initialRightDistance);
     	
+    	LEAtDistance = false;
+    	REAtDistance = false;
+    	
     	desiredLeftDistance = tempLeftDistance;
     	desiredRightDistance = tempRightDistance;
     	
@@ -82,6 +85,8 @@ public class DriveTrain {
     	missingRightDistance = desiredRightDistance - currentRightDistance;
     	SmartDashboard.putNumber("Missing right distance", missingRightDistance);
     	
+    	tankDrive(leftSpeed, rightSpeed);
+    	
 		switch(leftState  ){
     	case 0:
     		leftSpeed = 0;
@@ -93,10 +98,9 @@ public class DriveTrain {
     			leftState = 0;
     		}
     	case 1:
-    		leftSpeed = 0.75;
-    		if(!initiated){
-    			leftState = 0;
-    		}else if (missingLeftDistance < 2){
+    		initiated = false;
+    		leftSpeed = 1;
+    		if (missingLeftDistance == 0){
         		leftState = 0;
         		LEAtDistance = true;
         	}else{
@@ -104,43 +108,6 @@ public class DriveTrain {
         	}
     		break;
     	}
-		
-		switch(rightState  ){
-    	case 0:
-    		if (REAtDistance == true){
-    			rightState = 0;
-    		}else if(initiated){
-    			rightState = 1;
-    		}else{
-    			rightState = 0;
-    		}
-    	case 1:
-    		if(!initiated){
-    			rightState = 0;
-    		}else if (LEAtDistance == true){
-    			rightState = 0;
-    		}else{
-    			rightState = 1;
-    		}
-        	if (Math.abs(missingRightDistance) < 2){
-        		rightSpeed = 0;
-        		REAtDistance = true;
-        	}else if(Math.abs(missingRightDistance) <= 10){
-            	rightSpeed = missingRightDistance*0.1;
-        	}else if (missingRightDistance <= -10){
-        		rightSpeed = -1;
-        	}else if (missingRightDistance > 10){
-        		rightSpeed = 1;
-        	}else{
-        		rightState = 0;
-        	}
-    		break;
-		}
-    	
-    }
-    
-    public static void distanceDrive(){
-    	tankDrive(leftSpeed, rightSpeed);
     }
     
     public static void turnDegrees(double degrees){ // Turn by x degrees. (x degrees is right, -x is left)
@@ -154,7 +121,7 @@ public class DriveTrain {
     	robotDrive.arcadeDrive(stick);
     }
     public static void tankDrive(double left, double right){
-    	robotDrive.tankDrive(left, right);
+    	robotDrive.tankDrive(-left, -right);
     }
     
 }

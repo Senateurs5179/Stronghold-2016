@@ -60,7 +60,7 @@ public class OI {
         moatButton = new JoystickButton(codriver, 15);
         rampartsButton = new JoystickButton(codriver, 14);
         rockWallButton = new JoystickButton(codriver, 13);
-        roughTerrainButton = new JoystickButton(codriver, 11);
+        roughTerrainButton = new JoystickButton(codriver, 12);
         chevalButton = new JoystickButton(codriver, 10);
         portcullisButton = new JoystickButton(codriver, 7);
         drawbridgeButton = new JoystickButton(codriver, 8);

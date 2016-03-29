@@ -25,8 +25,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends SampleRobot {
 	boolean moreThanOne = false;
-	byte i;
+	byte i = 0;
 	public long startTime = 0;
+	private boolean lowBarSwitch = false;
 	public static boolean isAutonomous;
 	public static long lastIterationTime;
 	
@@ -59,22 +60,22 @@ public class Robot extends SampleRobot {
     	isAutonomous = true;
     	isTestMode = true;
     	
-		Thread t = new Thread(new Indicators());
-		t.start();
+//		Thread t = new Thread(new Indicators());
+//		t.start();
 		
-    	lastIterationTime = System.currentTimeMillis();
-        
-    	if (i < 2){
-        	RobotMap.driveTrainEncoderLeft.reset();
-        	RobotMap.driveTrainEncoderRight.reset();
-        	startTime  = System.currentTimeMillis();
-        	i++;
-    	}
-    	
-    	
-     	
-		while (System.currentTimeMillis() - startTime < 3000){
+		lowBarSwitch  = RobotMap.lowBarSwitch.get();
+		
+		long initialTime = 0;
+		
+		if (lowBarSwitch){
 			DriveTrain.tankDrive(0.75, 0.75);
+			initialTime = System.currentTimeMillis();
+			while(System.currentTimeMillis() - initialTime < 7000){
+				DriveTrain.tankDrive(0.75, 0.75);
+			}
+			DriveTrain.tankDrive(0, 0);
+		}else{
+			DriveTrain.tankDrive(0, 0);
 		}
 		
     }
@@ -98,9 +99,8 @@ public class Robot extends SampleRobot {
             	i++;
             }
                         
-           	DriveTrain.distanceCalculateSpeed();
-           	DriveTrain.distanceDrive();
-        	
+//            DriveTrain.distanceCalculateSpeed();
+//           	DriveTrain.distanceDrive();
         	DriveTrain.updateEncoders();
         	DriveTrain.arcadeDrive(OI.joystick);
         	        	
