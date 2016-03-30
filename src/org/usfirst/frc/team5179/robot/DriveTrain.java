@@ -29,7 +29,7 @@ public class DriveTrain {
     public static double RE = 0;
     public static double currentLeftDistance = 0;
     public static double currentRightDistance = 0;
-    public static double PPR = 1440;
+    public static double PPR = 0;
     public static double ratio = 12.75;
     public static double ratioToCaterpillar = (21/9);
     public static double radius = 2.375; 
@@ -59,10 +59,18 @@ public class DriveTrain {
     public static void driveDuringDistance(double tempLeftDistance, double tempRightDistance){
     	initiated = false;
     	
+    	RobotMap.driveTrainEncoderLeft.reset();
+    	RobotMap.driveTrainEncoderRight.reset();
+    	
     	initialLeftDistance = RobotMap.driveTrainEncoderLeft.getDistance();
     	SmartDashboard.putNumber("Initial left distance", initialLeftDistance);
     	initialRightDistance = RobotMap.driveTrainEncoderRight.getDistance();
     	SmartDashboard.putNumber("Initial right distance", initialRightDistance);
+    	
+    	currentLeftDistance = 0;
+    	currentRightDistance = 0;
+    	missingLeftDistance = 0;
+    	missingRightDistance = 0;
     	
     	LEAtDistance = false;
     	REAtDistance = false;
@@ -100,7 +108,7 @@ public class DriveTrain {
     	case 1:
     		initiated = false;
     		leftSpeed = 1;
-    		if (missingLeftDistance == 0){
+    		if (missingLeftDistance < 0){
         		leftState = 0;
         		LEAtDistance = true;
         	}else{

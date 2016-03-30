@@ -47,7 +47,10 @@ public class Robot extends SampleRobot {
             CameraServer server;
             server = CameraServer.getInstance();
             server.setQuality(50);
-            server.startAutomaticCapture("cam0");	
+            server.startAutomaticCapture("cam0");
+            DriveTrain.PPR = 1440;
+    	}else{
+            DriveTrain.PPR = 360;
     	}
     	
 //        DriveTrain.driveDuringDistance((10*12), (10*12));
@@ -70,7 +73,14 @@ public class Robot extends SampleRobot {
 		
 		long initialTime = 0;
 		
-/*		if (lowBarSwitch){
+    	DriveTrain.driveDuringDistance(10, 10);
+		
+    	while(true){
+            DriveTrain.distanceCalculateSpeed();
+        	DriveTrain.updateEncoders();    		
+    	}
+/*		
+		if (lowBarSwitch){
 			DriveTrain.tankDrive(0.75, 0.75);
 			initialTime = System.currentTimeMillis();
 			while(System.currentTimeMillis() - initialTime < 7000){
@@ -80,33 +90,28 @@ public class Robot extends SampleRobot {
 		}else{
 			DriveTrain.tankDrive(0, 0);
 		}
-*/
 		
 		DriveTrain.tankDrive(1, 1);
-		
+*/		
     }
+    
 
     /**
      * Runs the motors with arcade steering.
      */
     public void operatorControl() {
         while (isOperatorControl() && isEnabled()) {
+
+        	if (isReal()){ // Start Indicators if in real mode only
+        		Thread t = new Thread(new Indicators());
+        		t.start();
+        	}
         	
-    		Thread t = new Thread(new Indicators());
-    		t.start();
-    		
         	lastIterationTime = System.currentTimeMillis();
         	
             Timer.delay(0.005);		// wait for a motor update interval
  
-            if (i < 2){
-            	DriveTrain.driveDuringDistance(10, 10);
-            	SmartDashboard.putBoolean("DistanceSet", true);
-            	i++;
-            }
-                        
-//            DriveTrain.distanceCalculateSpeed();
-//           	DriveTrain.distanceDrive();
+                                    
         	DriveTrain.updateEncoders();
         	DriveTrain.arcadeDrive(OI.joystick);
         	        	
