@@ -42,11 +42,14 @@ public class Robot extends SampleRobot {
         
     	RobotMap.driveTrainEncoderLeft.reset();
     	RobotMap.driveTrainEncoderRight.reset();
-        CameraServer server;
-        server = CameraServer.getInstance();
-        server.setQuality(50);
-        server.startAutomaticCapture("cam0");
-
+    	
+    	if(isReal()){ //Start camera only if robot is real
+            CameraServer server;
+            server = CameraServer.getInstance();
+            server.setQuality(50);
+            server.startAutomaticCapture("cam0");	
+    	}
+    	
 //        DriveTrain.driveDuringDistance((10*12), (10*12));
         
         
@@ -67,7 +70,7 @@ public class Robot extends SampleRobot {
 		
 		long initialTime = 0;
 		
-		if (lowBarSwitch){
+/*		if (lowBarSwitch){
 			DriveTrain.tankDrive(0.75, 0.75);
 			initialTime = System.currentTimeMillis();
 			while(System.currentTimeMillis() - initialTime < 7000){
@@ -77,6 +80,9 @@ public class Robot extends SampleRobot {
 		}else{
 			DriveTrain.tankDrive(0, 0);
 		}
+*/
+		
+		DriveTrain.tankDrive(1, 1);
 		
     }
 

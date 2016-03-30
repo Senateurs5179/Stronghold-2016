@@ -2,7 +2,7 @@ package org.usfirst.frc.team5179.robot;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
-//
+
 public class Arm {
 	
 	public static boolean closeSolenoidButton = false;
