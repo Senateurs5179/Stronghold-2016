@@ -107,7 +107,7 @@ public class DriveTrain {
     		}
     	case 1:
     		initiated = false;
-    		leftSpeed = 1;
+    		leftSpeed = 0.75;
     		if (missingLeftDistance < 0){
         		leftState = 0;
         		LEAtDistance = true;
